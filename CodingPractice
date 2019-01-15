@@ -1,0 +1,19 @@
+
+SELECT Top 5 prod_name -- The top 5 product names from products
+FROM Products;
+
+SELECT * -- all the columns from the order table 
+From Products;
+
+SELECT DISTINCT vend_id
+FROM Vendors;
+
+SELECT DISTINCT cust_name, cust_city, cust_country
+From Customers 
+
+SELECT vend_state, vend_id 
+From Vendors;
+
+SELECT prod_name
+From Products
+ORDER BY prod_name
