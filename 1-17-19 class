@@ -1,0 +1,19 @@
+SELECT prod_name, prod_price
+From Products
+WHERE Prod_price IS NULL;
+
+SELECT prod_name, prod_price, prod_desc
+FROM Products
+WHERE Prod_price >=4;
+
+SELECT order_item, item_price
+FROM OrderItems
+WHERE quantity<50;
+
+SELECT order_num
+FROM OrderItems
+WHERE quantity BETWEEN 50 and 100;
+
+SELECT vend_name, vend_country
+FROM Vendors
+WHERE vend_country <> 'USA'; 
