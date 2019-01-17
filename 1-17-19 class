@@ -17,3 +17,36 @@ WHERE quantity BETWEEN 50 and 100;
 SELECT vend_name, vend_country
 FROM Vendors
 WHERE vend_country <> 'USA'; 
+
+SELECT prod_id, prod_price, prod_name
+FROM Products
+WHERE Vend_id='DLL01' AND prod_price<=4;
+
+SELECT prod_id, prod_price, prod_name
+FROM Products
+WHERE Vend_id='DLL01' OR Vend_id='BRS01';
+
+SELECT prod_name, prod_price 
+From Products
+Where Vend_id='DLL01' OR Vend_id='BRS01' AND prod_price>=10;
+
+SELECT prod_name, prod_price
+FROM Products
+WHERE Vend_id IN ('DLL01','BRS01')
+ORDER BY prod_name;
+
+SELECT prod_name, prod_price, prod_desc 
+FROM Products 
+WHERE Prod_price>= 7 AND Vend_id='FNG01';
+
+SELECT order_item, item_price 
+FROM OrderItems
+WHERE quantity IN (5, 10);
+
+SELECT prod_name, prod_id 
+FROM OrderItems
+WHERE 
+
+
+
+
