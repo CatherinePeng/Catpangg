@@ -1,0 +1,53 @@
+SELECT vend_name 
+From Vendors
+WHERE vend_name LIKE 'B%s';
+
+SELECT prod_name
+From Products
+WHERE prod_name LIKE '_i%';
+
+SELECT prod_name 
+From Products 
+WHERE NOT prod_name LIKE '__r%';
+
+SELECT cust_name, cust_contact, cust_email 
+From Customers 
+WHERE cust_email LIKE '%.com';
+
+SELECT cust_name 
+From Customers
+WHERE NOT cust_name LIKE '[ab]%';
+
+SELECT vend_name 
+FROM Vendors 
+WHERE vend_name LIKE '%[sd]';
+
+SELECT vend_address, vend_zip, vend_state
+From Vendors
+WHERE vend_state LIKE '[ON]%';SELECT vend_name 
+From Vendors
+WHERE vend_name LIKE 'B%s';
+
+SELECT prod_name
+From Products
+WHERE prod_name LIKE '_i%';
+
+SELECT prod_name 
+From Products 
+WHERE NOT prod_name LIKE '__r%';
+
+SELECT cust_name, cust_contact, cust_email 
+From Customers 
+WHERE cust_email LIKE '%.com';
+
+SELECT cust_name 
+From Customers
+WHERE NOT cust_name LIKE '[ab]%';
+
+SELECT vend_name 
+FROM Vendors 
+WHERE vend_name LIKE '%[sd]';
+
+SELECT vend_address, vend_zip, vend_state
+From Vendors
+WHERE vend_state LIKE '[ON]%';
