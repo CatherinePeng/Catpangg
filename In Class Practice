@@ -1,0 +1,25 @@
+--Practice
+
+--Q1 
+SELECT LOWER(prod_name), prod_price, LOWER(prod_desc)
+From Products
+ORDER BY prod_price;
+
+--Q2
+SELECT cust_id 
+FROM Orders
+WHERE Datename(yy,order_date)='2012';
+
+--Q3
+SELECT order_item, SQRT(item_price), SIN(quantity) 
+FROM Orderitems;
+
+--Q4
+SELECT order_num, cust_id, DATEPART(DD,order_date)AS Order_day, 
+DATEPART(MM,order_date)AS Order_month, DATEPART(YY,order_date)AS Order_year
+FROM Orders;
+
+--Q5
+SELECT cust_name, LEN(cust_name)AS Length_cust_name
+FROM Customers
+ORDER BY LEN(cust_name) DESC; 
