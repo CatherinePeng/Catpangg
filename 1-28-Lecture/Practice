@@ -1,0 +1,56 @@
+/*
+-- This is Catherine Peng's practice on her own
+-- The "%" sign Wildcard: DBSM finds anything after the word "Fish"
+SELECT prod_id, prod_name
+FROM Products
+WHERE prod_name LIKE 'Fish%';
+
+-- The "%" sign wild card here match any value that contain the text "bean bag" anywhere within it
+SELECT prod_id, prod_name
+FROM Products
+WHERE prod_name LIKE '%bean bag%';
+
+-- The "%" sign wild card here represents 0, 1, or more characters at the sepcified location in the search pattern
+SELECT prod_id, prod_name
+FROM Products
+WHERE prod_name LIKE 'F%y';
+
+-- Searching for partial email address; when you forget an email address or something.
+SELECT cust_name, cust_email
+FROM Customers
+WHERE cust_email LIKE 's%@villagetoys.com';
+
+*/
+
+-- However, % will not match NULL. 
+-- The underscore wildcard: __
+/*
+SELECT prod_id, prod_name
+From Products
+WHERE prod_name LIKE '___inch teddy bear';
+
+SELECT prod_id, prod_name
+From Products
+WHERE prod_name LIKE '__inch teddy bear';
+
+SELECT prod_id, prod_name
+From Products
+WHERE prod_name LIKE '%inch teddy bear';
+*/
+
+--Brakets Wildcard
+-- [JM]% DBSM will look for names that start with J or M
+SELECT cust_contact
+From Customers
+WHERE cust_contact LIKE '[JM]%';
+
+-- [^JM]% will look for names that did not start with J or M
+SELECT cust_contact
+FROM Customers
+Where cust_contact LIKE '[^JM]%';
+
+
+
+
+
+
