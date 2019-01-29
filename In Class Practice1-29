@@ -23,3 +23,27 @@ FROM Orders;
 SELECT cust_name, LEN(cust_name)AS Length_cust_name
 FROM Customers
 ORDER BY LEN(cust_name) DESC; 
+
+
+
+
+
+
+WHERE vend_id='DLL01';
+*/
+
+--Q1
+SELECT AVG(prod_price) AS avg_price
+FROM Products
+
+--Q2
+SELECT COUNT(order_item)AS count_items, AVG(item_price)AS avg_item_price, MAX(item_price)AS max_item_price, MIN(item_price)AS min_item_price
+FROM Orderitems;
+
+--Q3 
+SELECT SUM(quantity)As sum_quantity, sum((quantity)*SQRT(Item_price)) As sum_times_price
+From OrderItems;
+ 
+--Q4
+SELECT COUNT(DISTINCT order_num), COUNT(DISTINCT cust_id)
+FROM Orders 
