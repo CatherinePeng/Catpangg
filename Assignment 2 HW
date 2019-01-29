@@ -1,0 +1,26 @@
+/* This is the second assignment 
+We are some introductory queries using the database named: AdventureWorksDW2012
+*/
+
+/* Q1: Searching for Employees' first name and last name where last name initial is A, J, or P */
+SELECT Top 10 FirstName, LastName
+FROM Employee
+WHERE LastName LIKE '[AJP]%';
+
+/* Q2: Searching for Employees' first name, last name, base rate, and title 
+Where Employees' base rate is larger than 45, not a manager, and 
+order by last name in descending order */
+SELECT FirstName, LastName, BaseRate, Title 
+FROM Employee
+WHERE BaseRate >= 45 AND title LIKE '[^M]%' ORDER BY LastName DESC;
+
+/* Q3: Creating a new field that includes employees' first name, last name, title, 
+departmentname as Employee_info */
+--SELECT RTRIM(FirstName) + '(' +RTRIM(LastName) + ')' + '(' +RTRIM(Title) + ')' + '(' +RTRIM(DepartmentName) + ')' AS employee_info
+--FROM Employee;
+
+
+/* Q4: */
+SELECT RTRIM(VacationHours) + '(' +RTRIM(SickLeaveHours) +')' + '(' +RTRIM(BaseRate) + ')' AS costForSickandVacation
+--SELECT FirstName, LastName, Title, 
+
