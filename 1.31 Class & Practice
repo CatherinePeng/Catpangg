@@ -1,0 +1,49 @@
+SELECT COUNT(*)AS count_prod
+FROM Products
+WHERE vend_id='DLL01';
+
+SELECT cust_id, COUNT(*)AS orders
+From Orders
+GROUP BY cust_id
+HAVING COUNT (*)>=2
+
+SELECT vend_id, COUNT(*)AS num_prod
+FROM Products
+WHERE prod_price >=4 
+GROUP BY vend_id
+HAVING COUNT(*) >=2;
+
+SELECT order_num, COUNT(*)AS items
+FROM Orderitems
+GROUP BY order_num
+HAVING COUNT(*) >=3
+
+--Practice
+SELECT prod_id, COUNT(*)AS prod_id 
+FROM Products
+GROUP BY prod_id;
+
+ 
+
+PRACTICE
+SELECT prod_id, AVG(item_price)AS AVG_price, COUNT(*)AS count_product_id 
+FROM OrderItems
+GROUP BY prod_id;
+
+SELECT cust_name, COUNT(*) AS COUNT_customer 
+FROM Customers
+GROUP BY cust_name
+ORDER BY cust_name DESC;
+-- Combining the "COUNT_customer" column in to customer table; we created the customer table. 
+
+SELECT order_item, COUNT(order_item) AS Count_items, AVG(item_price) AS AVG_price
+FROM OrderItems
+GROUP BY order_item 
+HAVING order_item >=2;
+
+SELECT cust_id, COUNT(*) AS Count_id
+FROM Customers
+GROUP BY cust_id
+HAVING cust_id >=4
+ORDER BY cust_id DESC;
+
