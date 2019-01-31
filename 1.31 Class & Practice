@@ -99,9 +99,12 @@ SELECT vend_name, vend_city, (SELECT COUNT(*)
 								FROM Vendors
 								WHERE Vendors.vend_id = Products.prod_id)AS order_date
 FROM Vendors 
+ORDER BY vend_name DESC;
 
-SELECT vend_name, vend_country
+SELECT vend_city, vend_country 
 FROM Vendors
-WHERE prod_id IN (SELECT Prod_id, prod_price
-					FROM Products
-					WHERE prod_price <= 10) 
+WHERE vend_id IN (SELECT vend_id
+			FROM Products
+			WHERE prod_price <= 10 AND prod_id IN (SELECT prod_id
+								FROM Orderitems
+								WHERE quantity > 2)); 
