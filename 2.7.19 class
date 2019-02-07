@@ -1,0 +1,33 @@
+/*
+SELECT vend_name, prod_name, prod_price
+FROM Vendors INNER JOIN Products
+ON Vendors.vend_id = Products.vend_id;
+
+*/
+
+-- Joining Mutiple Tables
+SELECT vend_name, prod_name, prod_price, quantity 
+FROM Orderitems, Vendors, Products
+WHERE Vendors.vend_id = Products.vend_id -- The Foreign Key that joins both table 
+AND Products.prod_id = Orderitems.prod_id -- The Foreign Key taht joins both table 
+AND order_num = 20007;
+
+-- Table Aliases: Joining the tables so u can find what u wanna find 
+SELECT cust_name, cust_contact
+FROM Customers AS C,Orders AS O,Orderitems AS OI
+WHERE C.Cust_id = O.cust_id
+AND OI.order_num = O.order_num
+AND prod_id = 'RGAN01'; 
+
+-- Self Join 
+SELECT cust_id, cust_name, cust_contact
+FROM Customers 
+WHERE Cust_name =(SELECT cust_name
+				   FROM Customers 
+				   WHERE Cust_contact = 'Jim Jones' );
+
+-- Natrual Joins
+SELECT C.*, O.order_num, O.order_date, 
+	   OI. prod_id, OI.quantity, OI.item 
+
+
