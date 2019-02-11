@@ -24,3 +24,58 @@ FROM Orders;
 SELECT LEN(cust_name) AS Length_cust_name
 FROM Customers
 ORDER BY Length_cust_name DESC;
+
+
+
+
+
+
+-- Midterm Practice 2, Week 4_1 Practice 2 
+/*
+SELECT AVG(prod_price) AS avg_prod_price
+FROM Products;
+
+SELECT AVG(prod_price) AS avg_prod_price
+FROM Products
+WHERE vend_id='DLL01';
+
+SELECT COUNT(*) AS num_cust -- What are we counting now since there are many columns in	Customers?
+FROM Customers;
+
+SELECT COUNT(cust_email) AS num_cust -- What are we counting here? 
+FROM Customers;
+
+
+
+SELECT MAX(prod_price) AS max_quantity
+FROM Products;
+
+
+SELECT SUM(quantity) AS items_odered
+FROM Orderitems 
+WHERE order_num='20005';
+
+SELECT SUM(item_price*quantity) AS total_price 
+FROM Orderitems
+WHERE order_num='20005';
+
+SELECT AVG(DISTINCT prod_price) AS avg_price -- What does this means?
+FROM Products
+WHERE vend_id='DLL01';
+
+SELECT COUNT(*) AS num_items --Wat fucking problems do we have here 
+	   MAX(prod_price) as max_prod_price
+	   AVG(prod_price) as avg_prod_price 
+FROM Products;
+*/
+
+--1) NEW FIELD NAMED avg_price of products average price 
+SELECT AVG(prod_price) AS avg_price
+FROM Products;
+
+--2) Count of all order items, average price, min and max item price by creating 4 new fields, named
+--2) count_items, avg_item_price, min_item_price & max_item_price 
+SELECT COUNT(*) AS count_items, AVG(item_price) AS avg_item_price, MIN(item_price) AS min_item_price, MAX(item_price) AS max_item_price
+FROM OrderItems; 
+
+--3) Sum of all items' quantity, 
