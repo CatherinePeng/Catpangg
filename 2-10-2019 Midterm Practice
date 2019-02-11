@@ -1,0 +1,26 @@
+-- Practice Assignment for Midterm
+-- Week 4_1_First Practice 
+
+-- All products name, price and description in lower case ordered by their price 
+SELECT prod_name, prod_price, prod_desc 
+FROM Products
+ORDER BY prod_price DESC;
+
+-- List all customer ids of customers who had ordered items in 2012 
+SELECT cust_id
+FROM Orders
+WHERE DATEPART(YY,order_date)='2012';
+
+-- List all order items, their price and quantity, with the square root of their price and sinus of their quantity
+SELECT order_item, item_price, SQRT(quantity) AS sqrt_quantity, SIN(quantity) AS sin_quantity 
+FROM OrderItems;
+
+-- List all the order_number, cust_id with their order day, order month, and order year in 3 seperate columns,
+-- and name those new fields, order_day, order_month, order_year. 
+SELECT order_num, cust_id, day(order_date) as order_day, month(order_date) as order_month, year(order_date) as order_year
+FROM Orders;
+
+-- List, in a new field called length_cust_name, the length of customer name in desc order.
+SELECT LEN(cust_name) AS Length_cust_name
+FROM Customers
+ORDER BY Length_cust_name DESC;
