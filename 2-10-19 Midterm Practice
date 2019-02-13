@@ -86,6 +86,7 @@ FROM OrderItems;
 
 
 2/12/19
+--2/12/19
 -- DATA GROUPING: Grouping the products that have vend_id= DLL01. 
 SELECT COUNT(*) AS count_prod
 FROM Products
@@ -116,9 +117,29 @@ GROUP BY vend_id
 HAVING COUNT(*) >=2; 
 
 -- Grouping & Data Sorting 
+SELECT order_num, COUNT(*) AS items 
+FROM Orderitems 
+GROUP BY order_num 
+HAVING COUNT(*) >= 3
+ORDER BY items, order_num;
 
 
 
+
+-- Practice: 
+--1) Gimme all the products ID, the count of products ids and its average price grouped by product id
+SELECT prod_id, COUNT(*) AS count_prod, AVG(prod_price) AS avg_prod_price 
+FROM Products
+GROUP BY prod_id; 
+
+--2) List all customer names and its count grouped by customers names and ordered by customer names descreasing order
+SELECT cust_name, COUNT(*) AS cust_count 
+FROM Customers 
+GROUP BY cust_name 
+ORDER BY cust_name DESC; 
+
+--3) List all the order items, their average price and count grouped by order items greater than 2 
+SELECT 
 
 
 
