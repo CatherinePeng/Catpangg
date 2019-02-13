@@ -79,3 +79,47 @@ SELECT COUNT(*) AS count_items, AVG(item_price) AS avg_item_price, MIN(item_pric
 FROM OrderItems; 
 
 --3) Sum of all items' quantity, 
+
+
+
+
+
+
+2/12/19
+-- DATA GROUPING: Grouping the products that have vend_id= DLL01. 
+SELECT COUNT(*) AS count_prod
+FROM Products
+WHERE vend_id='DLL01';
+
+-- Create Groups: Group # of products count by vend_id.
+SELECT vend_id, COUNT(*) AS num_prod 
+FROM Products
+GROUP BY vend_id;
+
+-- Filtering Groups: Count (*)>=2 
+SELECT cust_id, COUNT(*) AS orders
+FROM Orders
+GROUP BY cust_id
+HAVING COUNT (*) >= 2;
+
+-- Filtering Groups: 
+SELECT vend_id, COUNT(*) AS num_prod
+FROM Products
+WHERE prod_price>= 4
+GROUP BY vend_id
+HAVING COUNT (*)>= 2;
+
+-- Filtering Groups: 
+SELECT vend_id, COUNT(*) AS num_prod
+FROM Products
+GROUP BY vend_id
+HAVING COUNT(*) >=2; 
+
+-- Grouping & Data Sorting 
+
+
+
+
+
+
+
