@@ -15,3 +15,49 @@ FROM OrderItems
 GROUP BY prod_id
 HAVING COUNT(*)> 3;
 
+--3) The list of the product names that were created by the vendor's name is 'Bear R US' 
+SELECT prod_name 
+FROM Products 
+WHERE vend_id IN (SELECT vend_id 
+				   FROM Vendors 
+				   WHERE vend_name= 'Bears R US');
+
+--4) Average product price and the products count of products that have a non null customer id. 
+SELECT COUNT(*), AVG(prod_price)
+FROM Products 
+WHERE prod_id IN (SELECT prod_id
+				  FROM OrderItems
+				  WHERE order_num IN (SELECT order_num
+									  FROM Orders
+									  WHERE NOT cust_id is NULL));
+--5) Gimme the sum of items quantity sold by the Vendor "Doll House Inc"
+SELECT SUM(quantity) 
+FROM OrderItems 
+WHERE prod_id IN (SELECT prod_id 
+				  FROM Products 
+				  WHERE vend_id IN (SELECT vend_id 
+									FROM Vendors 
+									WHERE vend_name= 'Doll House Inc.'));
+--6) Gimme the list of all the customers' names that ordered more than two items and those items were sold by 
+-- "Doll House Inc."
+SELECT cust_name
+FROM Customers 
+WHERE cust_id IN (SELECT cust_id 
+				  FROM Orders
+				  WHERE order_num IN (SELECT order_num 
+									  FROM OrderItems 
+									  WHERE quantity> 2 AND prod_id IN (SELECT prod_id 
+																		FROM Products
+																		WHERE vend_id IN (SELECT vend_id
+																						  FROM Vendors
+																						  WHERE vend_name= 'Doll House Inc.'))));
+	-- Inner Join Table!
+SELECT vend_name, prod_name, prod_price 
+FROM Vendors INNER JOIN Products
+ON Vendors.vend_id = Products.prod_id
+AND OrderItems.prod_id = Products.prod_id;
+	-- ok. now join mutiple tables!! 
+
+
+
+
