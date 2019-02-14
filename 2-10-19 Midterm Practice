@@ -178,6 +178,82 @@ WHERE Title LIKE '[s]%';
 
 
 
+-- Subqueries Midterm Reivew.... @_@
+-- Filtering by Subqueries!
+
+/* SELECT order_num
+FROM Orderitems
+WHERE prod_id = 'RGAN01';
+
+SELECT cust_id 
+FROM Orders
+WHERE order_num IN (20007, 20008);
+
+-- Combined two quereis! 
+SELECT cust_id
+FROM Orders
+WHERE order_num IN (SELECT order_num
+					 FROM Orderitems 
+					 WHERE prod_id = 'RGAN01');
+
+SELECT cust_name, cust_contact
+FROM Customers
+WHERE cust_id IN (1000000004, 100000005);
+
+-- Combine three queries? 
+SELECT cust_name, cust_contact
+FROM Customers
+WHERE cust_id IN (SELECT cust_id
+				  FROM Orders
+				  WHERE order_num IN (SELECT order_num
+									  FROM Orderitems 
+									  WHERE prod_id = 'RGAN01'));
+
+-- Subqueries as Calculating Fields 
+SELECT COUNT(*) AS orders
+FROM Orders
+WHERE cust_id = '1000000001';
+
+SELECT cust_name, cust_state, ( SELECT COUNT(*) 
+								FROM Orders 
+								WHERE Orders.cust_id = Customers.cust_id) AS orders
+FROM Customers
+*/
+-- Practice
+-- Gimme all the products name of not null order items 
+SELECT prod_name 
+FROM Products
+WHERE prod_id IN (SELECT prod_id 
+				  FROM OrderItems 
+				  WHERE NOT order_item IS NULL);
+
+-- List all customer names and country of customers who had order items in 2012.
+SELECT cust_name, cust_country 
+FROM Customers 
+WHERE cust_id IN (SELECT cust_id 
+				  FROM Orders
+				  WHERE DATEPART(YY, order_date)=2012);
+
+-- List all vendors names, cities, and count of products sold by each vendor and ordered by vendor's name DESC. 
+
+-- List all vendors name and country that have sold products priced less than or equal to 10$ and of quantity greater
+-- than 2 items. 
+SELECT vend_name, vend_country 
+FROM Vendors 
+WHERE vend_id IN (SELECT vend_id 
+				  FROM Products 
+				  WHERE prod_price<= 10 AND prod_id IN (SELECT prod_id
+														FROM OrderItems 
+														WHERE quantity> 2));
+
+
+
+
+
+
+
+
+
 
 
 
