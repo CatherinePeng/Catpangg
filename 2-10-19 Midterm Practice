@@ -143,4 +143,42 @@ SELECT
 
 
 
+-- Assignment 02... Redo
+--1) Find the list of top 10 employees first and last names and their last names start with either a,j, or p.
+SELECT TOP 10 FirstName, LastName 
+FROM Employee
+WHERE LastName LIKE '[AJP]%'; 
+
+--2) Find the list of employee first and last name, their base rate and title where their base rate is greater than 
+-- or equal to to $45 and their job title is not Manager, and order them by last name DESC. 
+SELECT FirstName, LastName, BaseRate, Title 
+From Employee
+WHERE BaseRate>= 45 AND TITLE NOT LIKE '[Manager]%'
+ORDER BY LastName DESC;
+
+--3) Create a new field called employee_info where the field has the following format: 
+-- Employee first name, employee last name (employee job title), Department name 
+
+SELECT RTRIM(FirstName) + '(' +RTRIM(LastName) + ')' + '(' +RTRIM(Title) + ')' + '(' +RTRIM(DepartmentName) + ')' AS employee_info
+FROM Employee;
+
+--4) Find the first and last name of all employees, their title and costForSickAndVacation value (a new field) 
+-- For only employee that starts with title s letter. 
+SELECT FirstName, LastName, Title, BaseRate*(SickLeaveHours+VacationHours) AS costForSickAndVacation 
+FROM Employee
+WHERE Title LIKE '[s]%';
+
+ --5) Find the First and Last name of employees, their gender and title, where their title start with the letter p, and
+ -- they r not Manager and order this results with the vacation hours DESC;
+ SELECT FirstName, LastName, Gender, Title
+ FROM Employee 
+ WHERE Title LIKE '[p]%' AND TITLE NOT LIKE '[^MANAGER]'
+ ORDER BY VacationHours DESC;
+
+
+
+
+
+
+
 
