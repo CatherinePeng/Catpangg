@@ -1,0 +1,11 @@
+--16) Give me the list of all customers names and their correspondents products names.
+-- List of customer names and their correspondent products names 
+SELECT cust_name 
+FROM Customers 
+WHERE cust_id IN (SELECT cust_id 
+				  FROM Orders
+				  WHERE order_num IN (SELECT order_num
+									  FROM OrderItems
+									  WHERE prod_id IN (SELECT prod_id 
+														FROM Products
+														WHERE prod_name = cust_id)));
