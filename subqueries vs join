@@ -1,0 +1,18 @@
+--Subqueries versus Join!
+SELECT cust_name, cust_contact
+FROM Customers
+WHERE cust_id IN (SELECT cust_id 
+				  FROM Orders
+				  WHERE order_num IN (SELECT order_num
+									  FROM OrderItems
+									  WHERE prod_id= 'RGAN01'));
+-- BUT u can also write it dis way
+SELECT cust_name, cust_contact
+FROM Customers AS C, Orders AS O, OrderItems AS OI
+WHERE C.cust_id = O.cust_id
+AND OI.order_num = O.order_num
+AND prod_id= 'RGAN01';
+
+--SELF JOIN (wtf though?)
+
+-- ...
