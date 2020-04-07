@@ -1,0 +1,41 @@
+#4/4/2020 OMG Long time no python...
+#Printing functions
+print("          /|")
+print("         / |")
+print("       /   |")
+print("      /__|")
+
+#Printing words
+#Variables....
+
+character_name  = "Dog"
+
+print("My name is " + character_name +", ")
+print("And I am a Cat person.")
+print("Dogs are pretty cute too,")
+
+charater_name = "Cat"
+
+print("But cats are still better.")
+print("Now my name is" + character_name + ". ")
+
+#Practice time! Create a story...
+today_date = "4/4/2020"
+day_of_qt = "????"
+rave_name = "Digital Mirage"
+
+print("Today's date is " + today_date + ". ")
+print("It's the" + day_of_qt + "of quaratine. Feels like forever.")
+print("I livestreamed" + rave_name + " all day with my boyfriend.")
+print("It was a nice day.")
+print("\n Press enter to exist.")
+
+#Practice!  \" equals to"
+phrase = "Giraffe Academy"
+print("Giraffee\"Academy")
+print(phrase)
+
+print(phrase + "is cool")
+print(phrase.lower())
+print(phrase.upper().isupper())
+print(len(phrase))
