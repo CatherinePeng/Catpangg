@@ -39,3 +39,64 @@ print(phrase + "is cool")
 print(phrase.lower())
 print(phrase.upper().isupper())
 print(len(phrase))
+
+ #4/7/2020
+phrase = "Giraffe Academy"
+#              012... 
+print(phrase[0])
+
+print(phrase.index("G"))
+print(phrase.replace("Giraffe", "Elephant"))
+
+#Numbers..
+print(3 * 4 + 5)
+print(10 % 3)
+
+my_num = 5
+#when you wanna print out a number with a string gotta convert number into a string 
+print(str(my_num) + "my fav num")
+print(abs(my_num)) #absolute value of the number
+print(pow(3, 2)) #means 3 ^ 2
+print(max(4,6))
+print(round(3.2))
+
+from math import *
+print(floor(3.7))
+
+#floor means the smallest number
+#celi means rounding up to the biggest
+
+name = input("Enter your name: ")
+age = input("Enter your age:") 
+print("Hello" + name + "!You are" + age)
+
+#Building a basic calculator
+num1 = input("Enter a number:" )
+num2 = input("Enter another number:")
+#By default python will ^always convert everything into a string...
+#so u use *int* to convert into numbers!
+#*float*-> a number that has decimal
+result = int(num1) + int(num2)
+
+#Mad libs game
+
+color = input("Enter a color:")
+plural_noun = input("Enter a plural noun:")
+celebrity = input("Enter a celebrity:")
+
+print("Roses are " + color)
+print("plural_noun + are blue")
+print("I love "+ celebrity )
+
+print(result)
+
+#Create your own mad libs games 
+print( name + "'s cake is the best")
+print("So yummy i gotta eat all day err dayyyy")
+print("Babe's favorite cake flavor is" + flavor)
+print("But his favorite cake is mine:P")
+
+flavor = input("A flavor:") 
+name = input("A person's name:")
+
+
